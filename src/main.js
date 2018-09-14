@@ -26,6 +26,15 @@ Vue.use(Vuetify, {
     VGrid,
     VToolbar,
     transitions
+  },
+  theme: {
+    primary: '#546E7A',
+    secondary: '#78909C',
+    accent: '#388E3C',
+    error: '#f44336',
+    warning: '#ffeb3b',
+    info: '#546E7A',
+    success: '#4caf50'
   }
 })
 
