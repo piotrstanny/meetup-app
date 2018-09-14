@@ -5,20 +5,20 @@
       <v-toolbar-title>Trip Meetup</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat>
-          <v-icon left>perm_media</v-icon>
-          View Meetups
+        <v-btn v-for="item in menuItems" :key="item.title" flat>
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.title }}
           </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-navigation-drawer dark class="secondary" v-model="sideNav">
       <v-list>
-        <v-list-tile>
+        <v-list-tile v-for="item in menuItems" :key="item.title">
           <v-list-tile-action>
-            <v-icon>perm_media</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            View Meetups
+            {{ item.title }}
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -32,7 +32,14 @@
 export default {
   data () {
     return {
-      sideNav: false
+      sideNav: false,
+      menuItems: [
+        {icon: 'perm_media', title: 'View Meetups'},
+        {icon: 'room', title: 'Organize Meetup'},
+        {icon: 'account_box', title: 'Profile'},
+        {icon: 'person', title: 'Sign in'},
+        {icon: 'person_add', title: 'Sign up'}
+      ]
     }
   },
   name: 'App'
