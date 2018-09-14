@@ -23,8 +23,11 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <main>
-    </main>
+    <v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
