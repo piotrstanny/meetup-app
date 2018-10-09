@@ -24,7 +24,7 @@
         </v-layout>
         <v-layout row wrap class="mt-3">
             <v-flex xs12 class="text-xs-center">
-                <p>Join our amazing Trips!</p>
+                <h1>Join our amazing Trips!</h1>
             </v-flex>
         </v-layout>
     </v-container>
@@ -32,8 +32,11 @@
 
 <script>
     export default {
+        // eslint-disable-next-line
         data () {
+            // eslint-disable-next-line
             return {
+                // eslint-disable-next-line
                 meetups: [
                     {imageUrl: 'https://3.bp.blogspot.com/-BSH0BrwZdiI/VyYNspLlLMI/AAAAAAAAIaU/DnyPstUOU1AKF186zhphr7jvrFxPpmwXwCLcB/s1600/zmarz%25C5%2582e%2Bczuby.jpg', id: 'wwgrrege', title: 'Tatry Mountain Trip'},
                     {imageUrl: 'https://www.thetimes.co.uk/imageserver/image/methode%2Ftimes%2Fprod%2Fweb%2Fbin%2F11c28fb2-133d-11e8-9ac6-bbf931a203ee.jpg', id: 'wwgvwre', title: 'Mount Blanc Trip'}
