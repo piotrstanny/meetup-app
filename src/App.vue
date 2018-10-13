@@ -13,7 +13,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar dark class="primary">
+    <v-toolbar id="top-toolbar" app dark class="primary">
       <v-toolbar-side-icon @click="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">Adventure Meetups</router-link>
@@ -52,3 +52,5 @@ export default {
   name: 'App'
 }
 </script>
+<style>
+</style>
