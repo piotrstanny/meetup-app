@@ -1,31 +1,57 @@
 <template>
-    <v-container>
-        <v-layout row wrap>
-            <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
-                <v-card color="blue-grey lighten-3">
-                        <v-layout>
-                            <v-flex xs5 sm3>
-                                <v-img
-                                    src="https://3.bp.blogspot.com/-BSH0BrwZdiI/VyYNspLlLMI/AAAAAAAAIaU/DnyPstUOU1AKF186zhphr7jvrFxPpmwXwCLcB/s1600/zmarz%25C5%2582e%2Bczuby.jpg"
-                                    aspect-ratio="1"
-                                ></v-img>
-                            </v-flex>
-                            <v-flex xs7 sm9>
-                                <v-card-title primary-title>
-                                    <div>
-                                        <div class="headline">My meetup</div>
-                                        <div>23th September 2018</div>
-                                    </div>
-                                </v-card-title>
-                                <v-card-actions>
-                                    <v-btn to="/meetups/1">
-                                        <v-icon left light>arrow_forward</v-icon>
-                                        View Meetup</v-btn>
-                                </v-card-actions>
-                            </v-flex>
-                        </v-layout>
-                </v-card>
+  <v-container>
+    <v-layout row wrap v-for="meetup in meetups" :key="meetup.id" class="mb-3">
+      <v-flex xs12 sm10 offset-sm1>
+        <v-card color="blue-grey lighten-3">
+          <v-layout style="max-height: 170px;">
+            <v-flex xs5 sm4>
+              <v-img
+                :src="meetup.imageUrl"
+                aspect-ratio="1"
+                height="170px"
+              ></v-img>
             </v-flex>
-        </v-layout>
-    </v-container>
+            <v-flex xs7 sm8>
+              <v-card-title primary-title class="mb-0 pb-0">
+                <div>
+                  <div class="meetup-list-title">{{ meetup.title }}</div>
+                  <div>{{ meetup.date }}</div>
+                </div>
+              </v-card-title>
+              <v-card-actions class="btn-bottom">
+                <v-spacer></v-spacer>
+                <v-btn class="secondary" to="/meetups/">
+                  <v-icon left light>arrow_forward</v-icon>
+                  View Meetup
+                </v-btn>
+              </v-card-actions>
+            </v-flex>
+          </v-layout>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
+
+<script>
+export default {
+  computed: {
+    meetups () {
+      return this.$store.getters.loadedMeetups
+    }
+  }
+}
+</script>
+
+<style>
+  .meetup-list-title {
+    font-weight: bold;
+    font-size: 3vh;
+    max-height: 60px;
+  }
+  .btn-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+</style>
