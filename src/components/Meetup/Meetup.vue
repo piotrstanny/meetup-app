@@ -4,14 +4,14 @@
       <v-flex xs12 sm8 offset-sm2>
         <v-card>
           <v-img
-          src="https://3.bp.blogspot.com/-BSH0BrwZdiI/VyYNspLlLMI/AAAAAAAAIaU/DnyPstUOU1AKF186zhphr7jvrFxPpmwXwCLcB/s1600/zmarz%25C5%2582e%2Bczuby.jpg"
+          :src="meetup.imageUrl"
           aspect-ratio="2"
           ></v-img>
 
           <v-card-title primary-title>
             <div>
-              <div class="headline">July Tatry Trip</div>
-              <div class="secondary--text">17th July 2018</div>
+              <div class="headline">{{ meetup.title }}</div>
+              <div class="secondary--text">{{ meetup.date }}</div>
             </div>
           </v-card-title>
 
@@ -28,3 +28,14 @@
     </v-layout>
   </v-container>
 </template>
+
+<script>
+export default {
+  props: ['id'],
+  computed: {
+    meetup () {
+      return this.$store.getters.loadedMeetup(this.id)
+    }
+  }
+}
+</script>

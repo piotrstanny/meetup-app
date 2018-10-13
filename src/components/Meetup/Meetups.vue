@@ -20,7 +20,7 @@
               </v-card-title>
               <v-card-actions class="btn-bottom">
                 <v-spacer></v-spacer>
-                <v-btn class="secondary" to="/meetups/">
+                <v-btn class="secondary" :to="'/meetups/' + meetup.id">
                   <v-icon left light>arrow_forward</v-icon>
                   View Meetup
                 </v-btn>
@@ -47,7 +47,7 @@ export default {
   .meetup-list-title {
     font-weight: bold;
     font-size: 3vh;
-    max-height: 60px;
+    max-height: 68px;
   }
   .btn-bottom {
     position: absolute;
