@@ -13,10 +13,10 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar dark class="primary">
+    <v-toolbar id="top-toolbar" app dark class="primary">
       <v-toolbar-side-icon @click="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer">Adventure Meetups</router-link>
+        <router-link to="/" tag="span" style="cursor: pointer">Our Meetups</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
