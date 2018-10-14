@@ -37,8 +37,12 @@
           </v-layout>
           <v-layout row class="mb-3">
             <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker v-model="datePicker"></v-date-picker>
+              <v-date-picker
+              v-model="datePicker"
+              :min="todayDate"
+              ></v-date-picker>
               <p>{{ datePicker }}</p>
+              <p>{{ todayDate }}</p>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-3">
@@ -112,9 +116,26 @@ export default {
       this.imageUrl !== '' &&
       this.datePicker !== null &&
       this.timePicker !== null
+    },
+    todayDate () {
+      const today = new Date()
+      return this.formatDate(today)
     }
   },
   methods: {
+    formatDate (date) {
+      const year = date.getFullYear()
+      let month = `${date.getMonth() + 1}`
+      let day = `${date.getDate()}`
+
+      if (month.length < 2) {
+        month = `0${month}`
+      }
+      if (day.length < 2) {
+        day = `0${day}`
+      }
+      return [year, month, day].join('-')
+    },
     onCreateMeetup () {
       if (!this.formIsValid) {
         return
