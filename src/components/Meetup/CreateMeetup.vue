@@ -43,7 +43,7 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <img :src="imageUrl">
+              <img :src="imageUrl" height="150px">
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -60,7 +60,7 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <v-btn large class="warning" color="black--text">Create Meetup</v-btn>
+              <v-btn :disabled="!formIsValid" large class="warning" color="black--text">Create Meetup</v-btn>
             </v-flex>
           </v-layout>
         </v-form>
@@ -77,6 +77,14 @@ export default {
       location: '',
       description: '',
       imageUrl: ''
+    }
+  },
+  computed: {
+    formIsValid () {
+      return this.title !== '' &&
+      this.localtion !== '' &&
+      this.description !== '' &&
+      this.imageUrl !== ''
     }
   }
 }
