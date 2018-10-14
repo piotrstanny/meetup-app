@@ -109,7 +109,9 @@ export default {
       return this.title !== '' &&
       this.localtion !== '' &&
       this.description !== '' &&
-      this.imageUrl !== ''
+      this.imageUrl !== '' &&
+      this.datePicker !== null &&
+      this.timePicker !== null
     }
   },
   methods: {
@@ -122,7 +124,8 @@ export default {
         location: this.location,
         imageUrl: this.imageUrl,
         description: this.description,
-        date: new Date()
+        date: this.datePicker,
+        time: this.timePicker
       }
       this.$store.dispatch('createMeetup', meetupData)
       this.$router.push('/meetups')

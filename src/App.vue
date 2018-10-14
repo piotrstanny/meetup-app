@@ -28,7 +28,7 @@
     </v-toolbar>
 
     <v-content>
-      <v-container>
+      <v-container id="main-container">
         <router-view></router-view>
       </v-container>
     </v-content>
@@ -52,3 +52,9 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+  #main-container {
+    max-width: 1080px;
+  }
+</style>
