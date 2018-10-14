@@ -11,17 +11,18 @@
           <v-card-title primary-title>
             <div>
               <div class="headline">{{ meetup.title }}</div>
-              <div class="secondary--text">{{ meetup.date }}</div>
+              <div class="secondary--text">{{ meetup.date }} - {{ meetup.location }}</div>
             </div>
           </v-card-title>
 
           <v-card-text>
-            <div>Three day excursion assumes an approach to the famous Orla Perc trial. The potential accomodations are full booked. We're going to occupy a floor space. There is as well a threat for the weather breakdown.</div>
+            <div>Arrival time: {{ meetup.time }} </div>
+            <div>{{ meetup.description }}</div>
           </v-card-text>
 
           <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat color="red darken-4">Register</v-btn>
+          <v-btn outline color="red darken-4">Register</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

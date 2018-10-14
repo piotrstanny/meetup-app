@@ -28,7 +28,7 @@
     </v-toolbar>
 
     <v-content>
-      <v-container>
+      <v-container id="main-container">
         <router-view></router-view>
       </v-container>
     </v-content>
@@ -42,7 +42,7 @@ export default {
       sideNav: false,
       menuItems: [
         {icon: 'perm_media', title: 'View Meetups', link: '/meetups'},
-        {icon: 'room', title: 'Organize Meetup', link: '/meetups/new'},
+        {icon: 'room', title: 'Create Meetup', link: '/meetups/new'},
         {icon: 'account_box', title: 'Profile', link: '/profile'},
         {icon: 'person', title: 'Sign in', link: '/signin'},
         {icon: 'person_add', title: 'Sign up', link: '/signup'}
@@ -52,3 +52,9 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+  #main-container {
+    max-width: 1080px;
+  }
+</style>
