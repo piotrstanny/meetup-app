@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h2>Create a new Meetup</h2>
+        <h1 class="mt-2 mb-3">Organize a new Meetup!</h1>
       </v-flex>
     </v-layout>
     <v-layout row>
@@ -15,7 +15,7 @@
               name="title"
               id="title"
               label="Title"
-              required
+              :rules="titleRules"
               ></v-text-field>
             </v-flex>
           </v-layout>
@@ -26,13 +26,13 @@
               name="location"
               id="location"
               label="Location"
-              required
+              :rules="locationRules"
               ></v-text-field>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-3">
             <v-flex xs12 sm6 offset-sm3>
-              <h3>Choose a date and time:</h3>
+              <h2 class="mt-4">Choose a date and time:</h2>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-3">
@@ -41,14 +41,16 @@
               v-model="datePicker"
               :min="todayDate"
               ></v-date-picker>
-              <p>{{ datePicker }}</p>
-              <p>{{ todayDate }}</p>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-3">
             <v-flex xs12 sm6 offset-sm3>
               <v-time-picker v-model="timePicker" format="24hr"></v-time-picker>
-              <p>{{ timePicker }}</p>
+            </v-flex>
+          </v-layout>
+          <v-layout row class="mb-3">
+            <v-flex xs12 sm6 offset-sm3>
+              <h2 class="mt-4">Place an image and description:</h2>
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -58,7 +60,7 @@
               name="imageUrl"
               id="image-url"
               label="Image URL"
-              required
+              :rules="imageRules"
               ></v-text-field>
             </v-flex>
           </v-layout>
@@ -75,7 +77,7 @@
               id="description"
               label="Description"
               multi-line
-              required
+              :rules="descriptionRules"
               ></v-textarea>
             </v-flex>
           </v-layout>
@@ -100,6 +102,18 @@
 export default {
   data () {
     return {
+      titleRules: [
+        v => !!v || 'Title is required'
+      ],
+      locationRules: [
+        v => !!v || 'Location is required'
+      ],
+      imageRules: [
+        v => !!v || 'Image is required'
+      ],
+      descriptionRules: [
+        v => !!v || 'Description is required'
+      ],
       title: '',
       location: '',
       description: '',
