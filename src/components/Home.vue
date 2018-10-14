@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-carousel style="cursor: pointer;">
+        <v-carousel style="cursor: pointer; max-height: 400px;">
           <v-carousel-item
           v-for="meetup in meetups"
           :key="meetup.id"
