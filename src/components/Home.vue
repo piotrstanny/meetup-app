@@ -20,7 +20,7 @@
         <v-btn large to="/meetups" class="secondary">Explore Meetups</v-btn>
       </v-flex>
       <v-flex xs12 sm6 class="text-sm-left text-xs-center">
-        <v-btn large to="/meetups/new" class="secondary">Organize Meetup</v-btn>
+        <v-btn large to="/meetups/new" class="secondary">Create Meetup</v-btn>
       </v-flex>
     </v-layout>
     <v-layout row wrap class="mt-3">
