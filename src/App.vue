@@ -42,7 +42,7 @@ export default {
       sideNav: false,
       menuItems: [
         {icon: 'perm_media', title: 'View Meetups', link: '/meetups'},
-        {icon: 'room', title: 'Organize Meetup', link: '/meetups/new'},
+        {icon: 'room', title: 'Create Meetup', link: '/meetups/new'},
         {icon: 'account_box', title: 'Profile', link: '/profile'},
         {icon: 'person', title: 'Sign in', link: '/signin'},
         {icon: 'person_add', title: 'Sign up', link: '/signup'}
