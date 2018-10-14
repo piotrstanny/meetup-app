@@ -37,12 +37,14 @@
           </v-layout>
           <v-layout row class="mb-3">
             <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker></v-date-picker>
+              <v-date-picker v-model="datePicker"></v-date-picker>
+              <p>{{ datePicker }}</p>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-3">
             <v-flex xs12 sm6 offset-sm3>
-              <v-time-picker></v-time-picker>
+              <v-time-picker v-model="timePicker" format="24hr"></v-time-picker>
+              <p>{{ timePicker }}</p>
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -97,7 +99,9 @@ export default {
       title: '',
       location: '',
       description: '',
-      imageUrl: ''
+      imageUrl: '',
+      datePicker: null,
+      timePicker: null
     }
   },
   computed: {
