@@ -48,7 +48,9 @@
                     type="submit"
                     large
                     class="warning mt-5"
-                    color="black--text">Sign Up</v-btn>
+                    color="black--text"
+                    :disabled="!signupIsValid"
+                    >Sign Up</v-btn>
                   </v-flex>
                 </v-layout>
               </v-form>
@@ -68,14 +70,33 @@ export default {
       password: '',
       confirmPassword: '',
       emailRules: [
-        v => !!v || 'E-mail is required'
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
       ],
       passwordRules: [
         v => !!v || 'Password is required'
       ],
       confirmPasswordRules: [
-        v => !!v || 'You have to type your password again'
+        v => !!v || 'Confirm your password',
+        v => v === this.password || 'Passwords do not match'
       ]
+    }
+  },
+  computed: {
+    signupIsValid () {
+      return this.email !== '' &&
+      this.password !== '' &&
+      this.confirmPassword !== ''
+    }
+  },
+  methods: {
+    onSignup () {
+      // Vuex
+      console.log({
+        email: this.email,
+        password: this.password,
+        confirmPassword: this.confirmPassword
+      })
     }
   }
 }

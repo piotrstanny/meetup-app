@@ -39,7 +39,7 @@
             <v-flex xs12 sm6 offset-sm3>
               <v-date-picker
               v-model="datePicker"
-              :min="todayDate"
+              :min="tomorrowDate"
               ></v-date-picker>
             </v-flex>
           </v-layout>
@@ -131,7 +131,7 @@ export default {
       this.datePicker !== null &&
       this.timePicker !== null
     },
-    todayDate () {
+    tomorrowDate () {
       const today = new Date()
       return this.formatDate(today)
     }
@@ -140,7 +140,7 @@ export default {
     formatDate (date) {
       const year = date.getFullYear()
       let month = `${date.getMonth() + 1}`
-      let day = `${date.getDate()}`
+      let day = `${date.getDate() + 1}`
 
       if (month.length < 2) {
         month = `0${month}`
