@@ -39,14 +39,26 @@
 export default {
   data () {
     return {
-      sideNav: false,
-      menuItems: [
-        {icon: 'perm_media', title: 'View Meetups', link: '/meetups'},
-        {icon: 'room', title: 'Create Meetup', link: '/meetups/new'},
-        {icon: 'account_box', title: 'Profile', link: '/profile'},
+      sideNav: false
+    }
+  },
+  computed: {
+    menuItems () {
+      let menuItems = [
         {icon: 'person', title: 'Sign in', link: '/signin'},
         {icon: 'person_add', title: 'Sign up', link: '/signup'}
       ]
+      if (this.userIsAuthenticated) {
+        menuItems = [
+          {icon: 'perm_media', title: 'View Meetups', link: '/meetups'},
+          {icon: 'room', title: 'Create Meetup', link: '/meetups/new'},
+          {icon: 'account_box', title: 'Profile', link: '/profile'}
+        ]
+      }
+      return menuItems
+    },
+    userIsAuthenticated () {
+      return this.$store.getters.user !== null && this.$store.getters.user !== undefined
     }
   },
   name: 'App'

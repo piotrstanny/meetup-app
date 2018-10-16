@@ -26,10 +26,7 @@ export const store = new Vuex.Store({
         description: 'Organised 1 week excursion with professional guide, taking us to The Mont Blanc.'
       }
     ],
-    user: {
-      id: 'egefbr34',
-      registeredMeetups: ['wwgrrege']
-    }
+    user: null
   },
   mutations: {
     createMeetup (state, payload) {
@@ -67,7 +64,8 @@ export const store = new Vuex.Store({
       .catch(
         error => {
           console.log(error)
-      })
+        }
+      )
     }
   },
   getters: {
@@ -85,6 +83,9 @@ export const store = new Vuex.Store({
           return meetup.id === meetupId
         })
       }
+    },
+    user (state) {
+      return state.user
     }
   }
 })
