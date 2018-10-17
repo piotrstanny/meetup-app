@@ -1,6 +1,5 @@
 <template>
   <v-alert
-    dismissible
     type="error"
     @input="onClose"
     :value="true"

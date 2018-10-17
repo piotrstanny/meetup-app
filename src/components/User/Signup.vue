@@ -100,13 +100,15 @@ export default {
       return this.$store.getters.error
     }
   },
-  // watch: {
-  //   user (value) {
-  //     if (value !== null && value !== undefined) {
-  //       this.$router.push('/')
-  //     }
-  //   }
-  // },
+  watch: {
+    error (value) {
+      if (value !== null && value !== undefined) {
+        console.log(value)
+      } else {
+        this.$router.push('/')
+      }
+    }
+  },
   methods: {
     onSignup () {
       this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
