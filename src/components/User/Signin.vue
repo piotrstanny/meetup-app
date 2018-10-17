@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-layout row v-if="error">
+      <v-flex xs12 sm6 offset-sm3>
+        <app-alert :text="error.message"></app-alert>
+      </v-flex>
+    </v-layout>
     <v-layout row wrap>
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
@@ -38,7 +43,11 @@
                     class="warning mt-5"
                     color="black--text"
                     :disabled="!signupIsValid"
-                    >Sign In</v-btn>
+                    >Sign Up</v-btn>
+                    <v-progress-circular v-if="loading" class="mt-5"
+                    indeterminate
+                    color="primary"
+                    ></v-progress-circular>
                   </v-flex>
                 </v-layout>
               </v-form>
@@ -72,11 +81,19 @@ export default {
     },
     user () {
       return this.$store.getters.user
+    },
+    loading () {
+      return this.$store.getters.loading
+    },
+    error () {
+      return this.$store.getters.error
     }
   },
   watch: {
-    user (value) {
+    error (value) {
       if (value !== null && value !== undefined) {
+        console.log(value)
+      } else {
         this.$router.push('/')
       }
     }
@@ -88,3 +105,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  .v-progress-circular
+    margin: 1rem
+</style>
