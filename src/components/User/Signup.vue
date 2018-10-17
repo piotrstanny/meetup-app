@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row v-if="error">
       <v-flex xs12 sm6 offset-sm3>
-        <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+        <app-alert :text="error.message"></app-alert>
       </v-flex>
     </v-layout>
     <v-layout row wrap>
@@ -91,7 +91,8 @@ export default {
     signupIsValid () {
       return this.email !== '' &&
       this.password !== '' &&
-      this.confirmPassword !== ''
+      this.confirmPassword !== '' &&
+      this.password === this.confirmPassword
     },
     user () {
       return this.$store.getters.user
@@ -112,10 +113,6 @@ export default {
   methods: {
     onSignup () {
       this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
-    },
-    onDismissed () {
-      console.log('Dismissed Alert!')
-      this.$store.dispatch('clearError')
     }
   }
 }
