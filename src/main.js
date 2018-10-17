@@ -3,6 +3,7 @@ import App from './App'
 import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
+import AlertCmp from './components/Shared/Alert.vue'
 import {
   Vuetify,
   VApp,
@@ -22,6 +23,7 @@ import {
   VTextarea,
   VDatePicker,
   VTimePicker,
+  VAlert,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -45,6 +47,7 @@ Vue.use(Vuetify, {
     VTextarea,
     VDatePicker,
     VTimePicker,
+    VAlert,
     transitions
   },
   theme: {
@@ -59,6 +62,7 @@ Vue.use(Vuetify, {
 })
 
 Vue.config.productionTip = false
+Vue.component('app-alert', AlertCmp)
 
 /* eslint-disable no-new */
 new Vue({
