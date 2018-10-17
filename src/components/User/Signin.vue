@@ -82,18 +82,16 @@ export default {
     user () {
       return this.$store.getters.user
     },
-    loading () {
-      return this.$store.getters.loading
-    },
     error () {
       return this.$store.getters.error
+    },
+    loading () {
+      return this.$store.getters.loading
     }
   },
   watch: {
-    error (value) {
+    user (value) {
       if (value !== null && value !== undefined) {
-        console.log(value)
-      } else {
         this.$router.push('/')
       }
     }
