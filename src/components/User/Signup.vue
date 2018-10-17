@@ -56,6 +56,10 @@
                     color="black--text"
                     :disabled="!signupIsValid"
                     >Sign Up</v-btn>
+                    <v-progress-circular v-if="loading" class="mt-5"
+                    indeterminate
+                    color="primary"
+                    ></v-progress-circular>
                   </v-flex>
                 </v-layout>
               </v-form>
@@ -99,6 +103,9 @@ export default {
     },
     error () {
       return this.$store.getters.error
+    },
+    loading () {
+      return this.$store.getters.loading
     }
   },
   watch: {
@@ -117,3 +124,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  .v-progress-circular
+    margin: 1rem
+</style>

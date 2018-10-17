@@ -38,7 +38,7 @@ export const store = new Vuex.Store({
       state.user = payload
     },
     setLoading (state, payload) {
-      state.user = payload
+      state.loading = payload
     },
     setError (state, payload) {
       state.error = payload
