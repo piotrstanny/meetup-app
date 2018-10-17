@@ -1,8 +1,20 @@
 <template>
   <v-container>
+    <v-layout row>
+      <v-flex xs12 text-xs-center>
+        <v-progress-circular
+        class="ma-0"
+        style="height: 400px;"
+        v-if="loading"
+        indeterminate
+        color="primary"
+        :size="70"
+        ></v-progress-circular>
+      </v-flex>
+    </v-layout>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-carousel style="cursor: pointer; max-height: 400px;">
+        <v-carousel v-if="!loading" style="cursor: pointer; max-height: 400px;">
           <v-carousel-item
           v-for="meetup in meetups"
           :key="meetup.id"
@@ -36,6 +48,9 @@
     computed: {
       meetups () {
         return this.$store.getters.featuredMeetups
+      },
+      loading () {
+        return this.$store.getters.loading
       }
     },
     methods: {
@@ -46,7 +61,7 @@
   }
 </script>
 
-<style>
+<style lang="stylus" scoped>
   .meetup-title {
     position: absolute;
     bottom: 50px;
@@ -55,4 +70,6 @@
     background-color: rgba(0,0,0,0.5);
     color: white;
   }
+  .v-progress-circular
+    margin: 1rem
 </style>
