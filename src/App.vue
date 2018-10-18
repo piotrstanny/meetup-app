@@ -10,6 +10,17 @@
             {{ item.title }}
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile
+        v-if="userIsAuthenticated"
+        @click="onSignOut"
+        >
+          <v-list-tile-action>
+            <v-icon>exit_to_app</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            Sign out
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
 
@@ -23,7 +34,11 @@
         <v-btn flat v-for="item in menuItems" :key="item.title" :to="item.link">
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
-          </v-btn>
+        </v-btn>
+        <v-btn @click="onSignOut" v-if="userIsAuthenticated" flat>
+          <v-icon left>exit_to_app</v-icon>
+          Sign out
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -59,6 +74,12 @@ export default {
     },
     userIsAuthenticated () {
       return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+    }
+  },
+  methods: {
+    onSignOut () {
+      this.$store.dispatch('signOut')
+      this.$router.push('/')
     }
   },
   name: 'App'
