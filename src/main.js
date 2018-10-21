@@ -4,6 +4,7 @@ import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
 import AlertCmp from './components/Shared/Alert.vue'
+import EditMeetupDialog from '@/components/Meetup/Edit/EditMeetupDialog'
 import {
   Vuetify,
   VApp,
@@ -25,6 +26,7 @@ import {
   VTimePicker,
   VAlert,
   VProgressCircular,
+  VDialog,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -50,6 +52,7 @@ Vue.use(Vuetify, {
     VTimePicker,
     VAlert,
     VProgressCircular,
+    VDialog,
     transitions
   },
   theme: {
@@ -65,6 +68,7 @@ Vue.use(Vuetify, {
 
 Vue.config.productionTip = false
 Vue.component('app-alert', AlertCmp)
+Vue.component('app-edit-meetup-dialog', EditMeetupDialog)
 
 /* eslint-disable no-new */
 new Vue({
