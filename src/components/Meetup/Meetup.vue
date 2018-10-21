@@ -12,7 +12,7 @@
             <div class="headline">{{ meetup.title }}</div>
             <v-spacer></v-spacer>
             <template v-if="userIsCreator" >
-                <app-edit-meetup-dialog></app-edit-meetup-dialog>
+                <app-edit-meetup-dialog :meetup="meetup"></app-edit-meetup-dialog>
             </template>
           </v-card-title>
 
