@@ -87,24 +87,10 @@ export const store = new Vuex.Store({
       .then(fileData => {
         return fileData.ref.getDownloadURL()
       })
-
-      // .then(url => {
-      //   console.log(url)
-      // })
-        // imageUrl = fileData.metadata.downloadURLs[0]
-        // return firebase.database().ref('meetups').child(key).update({imageUrl: imageUrl})
-
-      // // to fix problem from here
-      // .then(fileData => {
-      //   // console.log(fileData.metadata)
-      //   return fileData.getDownloadURL()
-      // })
       .then(url => {
         imageUrl = url
         return firebase.database().ref('meetups').child(key).update({imageUrl: imageUrl})
       })
-      // // until here
-
       .then(() => {
         commit('createMeetup', {
           ...meetup,
