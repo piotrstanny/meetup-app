@@ -12,6 +12,14 @@ export const store = new Vuex.Store({
     error: null
   },
   mutations: {
+    registerUserForMeetup (state, payload) {
+      const id = payload.id
+      if (state.user.registeredMeetups.findIndex(meetup => meetup.id === id) >= 0) {
+        return
+      }
+      state.user.registeredMeetups.push(id)
+      state.user.fbKeys[id] = payload.fbKey
+    },
     setLoadedMeetups (state, payload) {
       state.loadedMeetups = payload
     },
@@ -52,6 +60,23 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
+    registerUserForMeetup ({commit, getters}, payload) {
+      commit('setLoading', true)
+      const user = getters.user
+      firebase.database().ref('/users/' + user.id).child('/registration/')
+      .push(payload)
+      .then(data => {
+        commit('setLoading', false)
+        commit('registerUserForMeetup', {id: payload, fbKey: data.key})
+      })
+      .catch(error => {
+        console.log(error)
+        commit('setLoading', false)
+      })
+    },
+    unregisterUserFromMeetup ({commit}, payload) {
+
+    },
     loadMeetups ({commit}) {
       commit('setLoading', true)
       firebase.database().ref('meetups').once('value')

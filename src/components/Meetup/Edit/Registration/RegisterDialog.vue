@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     onRegister () {
-      return
     }
   }
 }
