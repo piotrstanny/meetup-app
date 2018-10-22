@@ -11,8 +11,10 @@
           <v-card-title primary-title>
             <div class="headline">{{ meetup.title }}</div>
             <v-spacer></v-spacer>
-            <template v-if="userIsCreator" >
-                <app-edit-meetup-dialog :meetup="meetup"></app-edit-meetup-dialog>
+            <template v-if="userIsCreator">
+                <app-edit-meetup-dialog
+                :meetup="meetup"
+                ></app-edit-meetup-dialog>
             </template>
           </v-card-title>
 
@@ -30,9 +32,12 @@
             <div>{{ meetup.description }}</div>
           </v-card-text>
 
-          <v-card-actions>
+          <v-card-actions >
             <v-spacer></v-spacer>
-            <v-btn outline color="red darken-4">Register</v-btn>
+            <app-register-dialog
+            v-if="!userIsCreator"
+            :meetupId="meetup.id"
+            ></app-register-dialog>
           </v-card-actions>
         </v-card>
       </v-flex>

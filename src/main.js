@@ -6,6 +6,7 @@ import { store } from './store'
 import AlertCmp from './components/Shared/Alert.vue'
 import EditMeetupDialog from '@/components/Meetup/Edit/EditMeetupDialog'
 import EditMeetupDateTime from '@/components/Meetup/Edit/EditMeetupDateTime'
+import RegisterDialog from '@/components/Meetup/Edit/Registration/RegisterDialog'
 import {
   Vuetify,
   VApp,
@@ -71,6 +72,7 @@ Vue.config.productionTip = false
 Vue.component('app-alert', AlertCmp)
 Vue.component('app-edit-meetup-dialog', EditMeetupDialog)
 Vue.component('app-edit-meetup-date-time', EditMeetupDateTime)
+Vue.component('app-register-dialog', RegisterDialog)
 
 /* eslint-disable no-new */
 new Vue({
