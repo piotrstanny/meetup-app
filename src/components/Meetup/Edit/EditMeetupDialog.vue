@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="350" persistent v-model="editDialog">
+  <v-dialog max-width="450px" persistent v-model="editDialog">
     <v-btn fab small slot="activator" color="error"><v-icon>edit</v-icon></v-btn>
     <v-card>
       <v-container>
@@ -18,6 +18,13 @@
             label="Title"
             v-model="editedTitle"
             :rules="titleRules"
+            ></v-text-field>
+            <v-text-field
+            name="location"
+            id="location"
+            label="location"
+            v-model="editedLocation"
+            :rules="locationRules"
             ></v-text-field>
             <v-textarea
             name="description"
@@ -54,20 +61,25 @@ export default {
       titleRules: [
         v => !!v || 'Title is required'
       ],
+      locationRules: [
+        v => !!v || 'Location is required'
+      ],
       editDialog: false,
       editedTitle: this.meetup.title,
+      editedLocation: this.meetup.location,
       editedDescription: this.meetup.description
     }
   },
   methods: {
     onSaveChanges () {
-      if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '') {
+      if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '' || this.editedLocation.trim() === '') {
         return
       }
       this.editDialog = false
       this.$store.dispatch('updateMeetupData', {
         id: this.meetup.id,
         title: this.editedTitle,
+        location: this.editedLocation,
         description: this.editedDescription
       })
     }

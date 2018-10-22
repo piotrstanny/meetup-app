@@ -17,10 +17,16 @@
           </v-card-title>
 
           <v-card-text>
+            <v-spacer></v-spacer>
             <div class="primary--text">{{ meetup.date }}
-              <br/>{{ meetup.location }}
               <br/>Arrival time: {{ meetup.time }}
+              <br/>{{ meetup.location }}
             </div>
+            <template v-if="userIsCreator" >
+              <app-edit-meetup-date-time
+              :meetup="meetup"
+              ></app-edit-meetup-date-time>
+            </template>
             <div>{{ meetup.description }}</div>
           </v-card-text>
 

@@ -45,7 +45,10 @@
           </v-layout>
           <v-layout row class="mb-3">
             <v-flex xs12 sm6 offset-sm3>
-              <v-time-picker v-model="timePicker" format="24hr"></v-time-picker>
+              <v-time-picker
+              v-model="timePicker"
+              format="24hr"
+              ></v-time-picker>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-3">

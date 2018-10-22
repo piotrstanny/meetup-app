@@ -5,6 +5,7 @@ import router from './router'
 import { store } from './store'
 import AlertCmp from './components/Shared/Alert.vue'
 import EditMeetupDialog from '@/components/Meetup/Edit/EditMeetupDialog'
+import EditMeetupDateTime from '@/components/Meetup/Edit/EditMeetupDateTime'
 import {
   Vuetify,
   VApp,
@@ -69,6 +70,7 @@ Vue.use(Vuetify, {
 Vue.config.productionTip = false
 Vue.component('app-alert', AlertCmp)
 Vue.component('app-edit-meetup-dialog', EditMeetupDialog)
+Vue.component('app-edit-meetup-date-time', EditMeetupDateTime)
 
 /* eslint-disable no-new */
 new Vue({

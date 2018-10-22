@@ -25,6 +25,9 @@ export const store = new Vuex.Store({
       if (payload.title) {
         meetup.title = payload.title
       }
+      if (payload.location) {
+        meetup.location = payload.location
+      }
       if (payload.description) {
         meetup.description = payload.description
       }
@@ -126,6 +129,9 @@ export const store = new Vuex.Store({
       const updateObj = {}
       if (payload.title) {
         updateObj.title = payload.title
+      }
+      if (payload.location) {
+        updateObj.location = payload.location
       }
       if (payload.description) {
         updateObj.description = payload.description
