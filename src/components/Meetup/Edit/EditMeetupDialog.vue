@@ -65,6 +65,11 @@ export default {
         return
       }
       this.editDialog = false
+      this.$store.dispatch('updateMeetupData', {
+        id: this.meetup.id,
+        title: this.editedTitle,
+        description: this.editedDescription
+      })
     }
   }
 }
