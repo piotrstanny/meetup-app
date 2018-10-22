@@ -35,7 +35,7 @@
           <v-card-actions >
             <v-spacer></v-spacer>
             <app-register-dialog
-            v-if="!userIsCreator"
+            v-if="!userIsCreator && userIsAuthenticated"
             :meetupId="meetup.id"
             ></app-register-dialog>
           </v-card-actions>
