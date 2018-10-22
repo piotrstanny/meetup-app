@@ -1,7 +1,6 @@
 <template>
   <v-alert
     type="error"
-    @input="onClose"
     :value="true"
   >
   {{ text }}
@@ -10,11 +9,6 @@
 
 <script>
 export default {
-  props: ['text'],
-  methods: {
-    onClose () {
-      this.$emit('dismissed')
-    }
-  }
+  props: ['text']
 }
 </script>
