@@ -32,7 +32,7 @@
             <v-card-actions>
               <v-btn flat class="grey--text" @click="registerDialog = false">Cancel</v-btn>
               <v-spacer></v-spacer>
-              <v-btn class="success black--text" @click="onRegister">Confirm Attendance</v-btn>
+              <v-btn class="success black--text" @click="onConfirm">Confirm</v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>
@@ -64,7 +64,13 @@ export default {
     }
   },
   methods: {
-    onRegister () {
+    onConfirm () {
+      if (this.userIsRegistered) {
+        this.$store.dispatch('unregisterUserFromMeetup', this.meetupId)
+      } else {
+        this.$store.dispatch('registerUserForMeetup', this.meetupId)
+      }
+      this.registerDialog = false
     }
   }
 }
