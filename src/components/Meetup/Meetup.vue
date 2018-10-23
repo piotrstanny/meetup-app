@@ -20,7 +20,7 @@
 
           <v-card-text>
             <v-spacer></v-spacer>
-            <div class="primary--text">{{ meetup.date }}
+            <div class="primary--text mb-2">{{ meetup.date }}
               <br/>Arrival time: {{ meetup.time }}
               <br/>{{ meetup.location }}
             </div>
@@ -29,13 +29,13 @@
               :meetup="meetup"
               ></app-edit-meetup-date-time>
             </template>
-            <div>{{ meetup.description }}</div>
+            <div class="mt-2">{{ meetup.description }}</div>
           </v-card-text>
 
           <v-card-actions >
             <v-spacer></v-spacer>
             <app-register-dialog
-            v-if="!userIsCreator"
+            v-if="!userIsCreator && userIsAuthenticated"
             :meetupId="meetup.id"
             ></app-register-dialog>
           </v-card-actions>

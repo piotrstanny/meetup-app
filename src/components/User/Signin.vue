@@ -40,7 +40,7 @@
                     <v-btn
                     type="submit"
                     large
-                    class="warning mt-5"
+                    class="success mt-5"
                     color="black--text"
                     :disabled="!signupIsValid"
                     >Sign Up</v-btn>

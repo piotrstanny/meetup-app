@@ -66,8 +66,7 @@ export default {
       if (this.userIsAuthenticated) {
         menuItems = [
           {icon: 'perm_media', title: 'View Meetups', link: '/meetups'},
-          {icon: 'room', title: 'Create Meetup', link: '/meetups/new'},
-          {icon: 'account_box', title: 'Profile', link: '/profile'}
+          {icon: 'room', title: 'Create Meetup', link: '/meetups/new'}
         ]
       }
       return menuItems
