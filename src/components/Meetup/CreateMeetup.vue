@@ -59,7 +59,7 @@
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-btn
-              class="success"
+              class="error"
               color="black--text"
               @click="onUploadFile"
               >Upload File</v-btn>
