@@ -1,6 +1,7 @@
 # meetup-app
 
 > Training app using Vue.js + Vuetify + Firebase
+Netlify deploy: https://hopeful-rosalind-040bf3.netlify.app/
 
 ## Build Setup
 
