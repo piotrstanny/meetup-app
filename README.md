@@ -1,7 +1,9 @@
-# meetup-app
+# Meet-up Web App
+Exploring events, creating new events only for registered users, signing-up for events.
 
-> Training app using Vue.js + Vuetify + Firebase
-Netlify deploy: https://hopeful-rosalind-040bf3.netlify.app/
+Web application built using Vue.js + Vuetify and Google Firebase.
+
+Website address: https://hopeful-rosalind-040bf3.netlify.app/
 
 ## Build Setup
 
