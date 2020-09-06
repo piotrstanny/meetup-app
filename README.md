@@ -5,6 +5,8 @@ Web application built using Vue.js + Vuetify and Google Firebase.
 
 Website address: https://hopeful-rosalind-040bf3.netlify.app/
 
+![Meet-up App](meet-up.png)
+
 ## Build Setup
 
 ``` bash
